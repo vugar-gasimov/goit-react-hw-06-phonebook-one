@@ -45,28 +45,31 @@ export const PhoneBook = () => {
   };
 
   return (
-    <PhoneBookContainer>
-      <PhoneBookTitle>
-        PhoneBook <Phone strokeWidth={1.5} />
-      </PhoneBookTitle>
+    <div>
+      <PhoneBookContainer>
+        <PhoneBookTitle>
+          PhoneBook <Phone strokeWidth={1.5} />
+        </PhoneBookTitle>
 
-      <ContactForm
-        onSubmit={onSubmit}
-        isNameExists={isNameExists}
-        isNumberExists={isNumberExists}
-      />
+        <ContactForm
+          onSubmit={onSubmit}
+          isNameExists={isNameExists}
+          isNumberExists={isNumberExists}
+        />
+      </PhoneBookContainer>
+      <PhoneBookContainer>
+        <PhoneBookContactTitle>
+          Contacts <BookUser strokeWidth={1.5} />
+        </PhoneBookContactTitle>
 
-      <PhoneBookContactTitle>
-        Contacts <BookUser strokeWidth={1.5} />
-      </PhoneBookContactTitle>
+        <Filter setFilter={handleFilterChange} filter={filter} />
 
-      <Filter setFilter={handleFilterChange} filter={filter} />
-
-      <ContactList
-        contacts={filteredData}
-        filter={filter}
-        onDeleteContact={handleContactDelete}
-      />
-    </PhoneBookContainer>
+        <ContactList
+          contacts={filteredData}
+          filter={filter}
+          onDeleteContact={handleContactDelete}
+        />
+      </PhoneBookContainer>
+    </div>
   );
 };
