@@ -10,11 +10,10 @@ export const Header = () => {
 };
 
 const HeaderContainer = styled.div`
-  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 20px 20px;
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0) 0,

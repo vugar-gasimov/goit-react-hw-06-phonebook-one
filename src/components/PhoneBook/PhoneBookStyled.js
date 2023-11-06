@@ -136,7 +136,7 @@ export const PhoneBookButton = styled.button`
   flex: 1;
   width: fit-content;
   font-size: 18px;
-  background-color: #007bff;
+  background-color: rgba(0, 123, 255, 0.5);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -147,12 +147,12 @@ export const PhoneBookButton = styled.button`
   margin-top: 8px;
 
   &:disabled {
-    background-color: #ccc;
+    background-color: rgba(0, 123, 255, 0.5);
     cursor: not-allowed;
   }
 
   &:hover:enabled {
-    background-color: #0056b3;
+    background-color: rgba(0, 100, 204, 0.7);
   }
 `;
 
