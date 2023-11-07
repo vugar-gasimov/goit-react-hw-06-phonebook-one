@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-
 import {
   PhoneBookInputContainer,
   PhoneBookInputLabel,
   PhoneBookInput,
   PhoneBookButton,
+  PhoneBookHint,
 } from '../PhoneBookStyled';
 
 import { toast } from 'react-toastify';
@@ -26,7 +26,7 @@ const ContactForm = () => {
       if (contacts.some(contact => contact.name === name)) {
         toast.info('Sorry, you already have this name in the phonebook. 😅');
       } else if (contacts.some(contact => contact.number === number)) {
-        toast.info('Sorry, you already have this number in the phonebook.😉');
+        toast.info('Sorry, you already have this number in the phonebook. 😉');
       } else {
         const newContact = {
           id: nanoid(),
@@ -40,6 +40,13 @@ const ContactForm = () => {
         setIsNameValid(false);
         setIsNumberValid(false);
         toast.success('You have added a new contact');
+      }
+    } else {
+      if (!isNameValid) {
+        toast.error('Please enter a valid name');
+      }
+      if (!isNumberValid) {
+        toast.error('Please enter a valid phone number');
       }
     }
   };
@@ -74,6 +81,11 @@ const ContactForm = () => {
         placeholder="Add new name..."
         onChange={handleNewName}
       />
+      {!isNameValid && (
+        <PhoneBookHint>
+          Please enter a valid name (alphabets, spaces, hyphens, apostrophes).
+        </PhoneBookHint>
+      )}
       <PhoneBookInputLabel>Number: </PhoneBookInputLabel>
       <PhoneBookInput
         type="tel"
@@ -83,6 +95,9 @@ const ContactForm = () => {
         placeholder="Add new number..."
         onChange={handleNewNumber}
       />
+      {!isNumberValid && (
+        <PhoneBookHint>Please enter a valid phone number.</PhoneBookHint>
+      )}
       <PhoneBookButton
         onClick={handleNewContacts}
         disabled={!isNameValid || !isNumberValid}

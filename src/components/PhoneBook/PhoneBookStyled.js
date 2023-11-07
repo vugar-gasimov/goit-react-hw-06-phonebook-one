@@ -6,6 +6,11 @@ const rotateHue = keyframes`
   }
 `;
 
+export const PhoneBookHint = styled.p`
+  color: #ff0000;
+  font-size: 14px;
+`;
+
 export const AppContainer = styled.div`
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
